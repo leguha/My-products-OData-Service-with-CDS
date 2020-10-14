@@ -1,0 +1,53 @@
+{
+  "namespace": "my.app",
+  "definitions": {
+    "CatalogService": {
+      "@source": "srv/cat-service.cds",
+      "kind": "service"
+    },
+    "CatalogService.Products": {
+      "kind": "entity",
+      "query": {
+        "SELECT": {
+          "from": {
+            "ref": [
+              "my.app.Products"
+            ]
+          }
+        }
+      },
+      "elements": {
+        "ProductID": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "ProductName": {
+          "type": "cds.String"
+        },
+        "UnitsInStock": {
+          "type": "cds.Integer"
+        }
+      },
+      "$syntax": "projection"
+    },
+    "my.app.Products": {
+      "kind": "entity",
+      "elements": {
+        "ProductID": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "ProductName": {
+          "type": "cds.String"
+        },
+        "UnitsInStock": {
+          "type": "cds.Integer"
+        }
+      }
+    }
+  },
+  "$version": "1.0",
+  "meta": {
+    "creator": "CDS Compiler v1.39.0"
+  }
+}
